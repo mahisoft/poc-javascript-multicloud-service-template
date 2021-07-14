@@ -1,0 +1,32 @@
+service: jorge-test
+frameworkVersion: '2'
+
+package:
+  patterns:
+    - '!cache'
+    - '!src'
+    - '!.idea'
+    - '!.gitignore'
+    - '!.git/**'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  lambdaHashingVersion: '20201221'
+  tracing:
+    apiGateway: true
+  apiGateway:
+    metrics: true
+    binaryMediaTypes:
+      - '*/*'
+
+functions:
+  ssr:
+    handler: build/function.aws
+    events:
+    - http:
+        path: /
+        method: ANY
+    - http:
+        path: /{proxy+}
+        method: ANY

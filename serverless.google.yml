@@ -1,0 +1,36 @@
+service: jorge-test
+
+frameworkVersion: ^2.35.0
+provider:
+  name: google
+  runtime: 'nodejs14'
+  project: kamino3-90d68
+  credentials: ~/.gcloud/keyfile.json
+  region: us-east1
+  stage: dev
+
+plugins:
+  - serverless-google-cloudfunctions
+  - serverless-plugin-scripts
+
+package:
+  patterns:
+    - '!cache'
+    - '!src'
+    - '!.idea'
+    - '!node_modules/**'
+    - '!.gitignore'
+    - '!.git/**'
+
+custom:
+  scripts:
+    hooks:
+      'after:deploy:deploy': gcloud functions add-iam-policy-binding ${self:service}-${self:provider.stage}-ssr --member="allUsers" --role="roles/cloudfunctions.invoker" --project=${self:provider.project} --region=${self:provider.region}
+
+functions:
+  ssr:
+    handler: gc
+    events:
+      - http: path
+    environment:
+      RAZZLE_BASE_URL: ${env:RAZZLE_BASE_URL}
