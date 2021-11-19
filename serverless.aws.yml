@@ -9,6 +9,9 @@ package:
     - '!.gitignore'
     - '!.git/**'
 
+custom:
+  defaultStage: dev
+
 provider:
   name: aws
   runtime: nodejs14.x
