@@ -23,4 +23,7 @@ module.exports = {
         }
         return webpackConfig;
     },
+    cssPrefix: 'dev/static/css',
+    jsPrefix: 'dev/static/js',
+    mediaPrefix: 'dev/static/media',
 }
