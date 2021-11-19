@@ -4,8 +4,8 @@ frameworkVersion: ^2.35.0
 provider:
   name: google
   runtime: 'nodejs14'
-  project: kamino3-90d68
-  credentials: ~/.gcloud/keyfile.json
+  project: kamino3
+  credentials: /home/mahisoft/Desktop/mahisoft/cicd-data/kamino3-service-account.json
   region: us-east1
   stage: dev
 
