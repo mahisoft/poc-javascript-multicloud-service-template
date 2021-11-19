@@ -7,9 +7,6 @@ module.exports = {
     },
     options: {
         verbose: true,
-        cssPrefix: 'dev/static/css',
-        jsPrefix: 'dev/static/js',
-        mediaPrefix: 'dev/static/media',
     },
     modifyWebpackConfig({
                             env,
