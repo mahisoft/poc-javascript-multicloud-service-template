@@ -10,18 +10,19 @@ console.log(process.env.RAZZLE_ASSETS_MANIFEST)
 console.log("=------------------==")
 console.log(assets)
 console.log("=------------------==")
+let dev=""
 
 const cssLinksFromAssets = (assets, entrypoint) => {
   return assets[entrypoint] ? assets[entrypoint].css ?
   assets[entrypoint].css.map(asset=>
-    `<link rel="stylesheet" href="${asset}">`
+    `<link rel="stylesheet" href="${dev}${asset}">`
   ).join('') : '' : '';
 };
 
 const jsScriptTagsFromAssets = (assets, entrypoint, extra = '') => {
   return assets[entrypoint] ? assets[entrypoint].js ?
   assets[entrypoint].js.map(asset=>
-    `<script src="dev${asset}"${extra}></script>`
+    `<script src="${dev}${asset}"${extra}></script>`
   ).join('') : '' : '';
 };
 
