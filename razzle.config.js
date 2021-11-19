@@ -6,7 +6,10 @@ module.exports = {
         return config
     },
     options: {
-        verbose: true
+        verbose: true,
+        cssPrefix: 'dev/static/css',
+        jsPrefix: 'dev/static/js',
+        mediaPrefix: 'dev/static/media',
     },
     modifyWebpackConfig({
                             env,
@@ -17,13 +20,10 @@ module.exports = {
                                 webpackOptions, // the modified options that will be used to configure webpack/ webpack loaders and plugins
                             },
                             paths, // the modified paths that will be used by Razzle.
-                        }) {
+    }) {
         if ('server' in webpackConfig.entry){
             webpackConfig.entry.function = './src/function.js'
         }
         return webpackConfig;
     },
-    cssPrefix: 'dev/static/css',
-    jsPrefix: 'dev/static/js',
-    mediaPrefix: 'dev/static/media',
 }
