@@ -10,7 +10,9 @@ package:
     - '!.git/**'
 
 custom:
-  defaultStage: dev
+  client:
+    bucketName: https://fe-poc-bucket.s3.amazonaws.com
+    distributionFolder: static
 
 provider:
   name: aws

@@ -10,7 +10,7 @@ console.log(process.env.RAZZLE_ASSETS_MANIFEST)
 console.log("=------------------==")
 console.log(assets)
 console.log("=------------------==")
-let dev="https://p9a6mz281c.execute-api.us-east-1.amazonaws.com/dev"
+let dev=""
 
 const cssLinksFromAssets = (assets, entrypoint) => {
   return assets[entrypoint] ? assets[entrypoint].css ?
@@ -18,7 +18,6 @@ const cssLinksFromAssets = (assets, entrypoint) => {
     `<link rel="stylesheet" href="${dev}${asset}">`
   ).join('') : '' : '';
 };
-
 const jsScriptTagsFromAssets = (assets, entrypoint, extra = '') => {
   return assets[entrypoint] ? assets[entrypoint].js ?
   assets[entrypoint].js.map(asset=>
