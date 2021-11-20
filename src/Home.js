@@ -24,7 +24,11 @@ class Home extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
+    console.log("hello wordddd!!!!")
+    console.log("hello wordddd!!!!")
+    console.log("hello wordddd!!!!")
+    console.log("hello wordddd!!!!")
+    console.log("hello wordddd!!!!")
     fetch("https://us-central1-kamino3.cloudfunctions.net/serverless-multicloud-base/sendNotification", {
       method: 'POST',
       headers: {
