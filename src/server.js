@@ -6,8 +6,7 @@ import { renderToString } from 'react-dom/server';
 
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
-console.log(process.env.TEST_VAR);
-let bucketUrl="https://fe-poc-bucket.s3.amazonaws.com"
+let bucketUrl=process.env.BUCKET_URL;
 
 const cssLinksFromAssets = (assets, entrypoint) => {
   return assets[entrypoint] ? assets[entrypoint].css ?
