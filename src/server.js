@@ -10,7 +10,7 @@ console.log(process.env.RAZZLE_ASSETS_MANIFEST)
 console.log("=------------------==")
 console.log(assets)
 console.log("=------------------==")
-let dev=""
+let dev="https://fe-poc-bucket.s3.amazonaws.com"
 
 const cssLinksFromAssets = (assets, entrypoint) => {
   return assets[entrypoint] ? assets[entrypoint].css ?
