@@ -5,18 +5,23 @@ import express from 'express';
 import { renderToString } from 'react-dom/server';
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
+console.log("----------------")
+const bucketUrl = require(process.env.BUCKET_URL);
+// const publicPath = require(process.env.PUBLIC_PATH)
+console.log(bucketUrl);
+console.log("----------------")
 
 const cssLinksFromAssets = (assets, entrypoint) => {
   return assets[entrypoint] ? assets[entrypoint].css ?
   assets[entrypoint].css.map(asset=>
-    `<link rel="stylesheet" href="${asset}">`
+    `<link rel="stylesheet" href="${bucketUrl}${asset}">`
   ).join('') : '' : '';
 };
 
 const jsScriptTagsFromAssets = (assets, entrypoint, extra = '') => {
   return assets[entrypoint] ? assets[entrypoint].js ?
   assets[entrypoint].js.map(asset=>
-    `<script src="${asset}"${extra}></script>`
+    `<script src="${bucketUrl}${asset}"${extra}></script>`
   ).join('') : '' : '';
 };
 
