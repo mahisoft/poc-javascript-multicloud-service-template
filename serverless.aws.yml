@@ -31,4 +31,4 @@ functions:
         path: /{proxy+}
         method: ANY
     environment:
-      TEST_VAR: https://fe-poc-bucket.s3.amazonaws.com
+      BUCKET_URL: https://fe-poc-bucket.s3.amazonaws.com
