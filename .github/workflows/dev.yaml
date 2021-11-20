@@ -3,7 +3,7 @@ name: Deploy Fe POC
 on:
   push:
     branches:
-      - test5
+      - test_
 
 jobs:
   cicd-pipeline-aws:
