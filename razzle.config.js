@@ -1,8 +1,6 @@
 module.exports = {
     modify: (config, { target }) => {
-        if (target === 'node') {
-            config.output.publicPath = `${process.env.PUBLIC_PATH}`
-        }
+        config.output.publicPath = "https://fe-poc-bucket.s3.amazonaws.com/"
         return config
     },
     options: {
